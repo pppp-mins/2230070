@@ -1,0 +1,270 @@
+{
+  "query": "30대 맞벌이 자녀2 가구가 가장 많이 가입한 보장 TOP5는?",
+  "normalized_query": "30대 맞벌이 자녀2 가구가 가장 많이 가입한 보장 TOP5는?",
+  "router": {
+    "intent": "segment_analysis",
+    "required_researchers": [
+      "policy"
+    ],
+    "reject": false,
+    "rewritten_query": "30대 맞벌이 자녀2 가구가 가장 많이 가입한 보장 TOP5는?"
+  },
+  "researchers": {
+    "policy": {
+      "status": "ok",
+      "answer": "30대 맞벌이 자녀2 가구(세그먼트 52명, 총 161건의 계약)가 가장 많이 가입한 보장은 1위 치과보강특약(43건), 2위 입원일당확장(41건), 3위 운전자벌금(37건), 4위 암진단가산(30건), 5위 해외의료확장(30건)로 나타났어요. 평균 월보험료는 약 94,852원 수준입니다.",
+      "metrics": {
+        "segment_size": 52,
+        "total_policies": 161,
+        "avg_monthly_premium_won": 94852,
+        "top5_coverages": [
+          {
+            "coverage_name": "치과보강특약",
+            "count": 43
+          },
+          {
+            "coverage_name": "입원일당확장",
+            "count": 41
+          },
+          {
+            "coverage_name": "운전자벌금",
+            "count": 37
+          },
+          {
+            "coverage_name": "암진단가산",
+            "count": 30
+          },
+          {
+            "coverage_name": "해외의료확장",
+            "count": 30
+          }
+        ],
+        "top_categories": [
+          {
+            "category": "어린이",
+            "count": 33
+          },
+          {
+            "category": "종신",
+            "count": 28
+          },
+          {
+            "category": "연금",
+            "count": 26
+          },
+          {
+            "category": "화재",
+            "count": 23
+          },
+          {
+            "category": "실손",
+            "count": 21
+          }
+        ]
+      },
+      "evidence_rows": [
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 0,
+          "fields": {
+            "customer_id": "C00005",
+            "age": 32,
+            "gender": "여성",
+            "occupation": "프리랜서",
+            "family_structure": "맞벌이자녀2",
+            "income_band": "800-1200만원",
+            "residence_region": "울산",
+            "driver_status": "비운전",
+            "persona_cluster": "맞벌이자녀가구",
+            "child_count": 2,
+            "homeowner_flag": "Y",
+            "priority_need_1": "재산보장",
+            "priority_need_2": "자차손해",
+            "needs_tags": "뇌혈관|재산보장"
+          }
+        },
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 1,
+          "fields": {
+            "customer_id": "C00014",
+            "age": 33,
+            "gender": "남성",
+            "occupation": "주부",
+            "family_structure": "맞벌이자녀2",
+            "income_band": "800-1200만원",
+            "residence_region": "인천",
+            "driver_status": "자가운전",
+            "persona_cluster": "사회초년생",
+            "child_count": 2,
+            "homeowner_flag": "Y",
+            "priority_need_1": "암진단",
+            "priority_need_2": "자녀상해",
+            "needs_tags": "치과|재산보장"
+          }
+        },
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 2,
+          "fields": {
+            "customer_id": "C00061",
+            "age": 35,
+            "gender": "남성",
+            "occupation": "주부",
+            "family_structure": "맞벌이자녀2",
+            "income_band": "500-800만원",
+            "residence_region": "광주",
+            "driver_status": "자가운전",
+            "persona_cluster": "1인가구청년",
+            "child_count": 2,
+            "homeowner_flag": "N",
+            "priority_need_1": "재산보장",
+            "priority_need_2": "해외여행",
+            "needs_tags": "어린이성장|수술비|노후연금"
+          }
+        },
+        {
+          "source": "policy_headers.csv",
+          "row_index": 0,
+          "fields": {
+            "policy_id": "P000016",
+            "customer_id": "C00005",
+            "product_code": "IR-CH-0134",
+            "product_name": "이레생명 어린이프리미엄2",
+            "insurer": "이레생명",
+            "category": "어린이",
+            "status": "정상유지",
+            "start_date": "2022-11-06",
+            "monthly_premium": 76251,
+            "scenario_code": "공백_배상"
+          }
+        },
+        {
+          "source": "policy_headers.csv",
+          "row_index": 1,
+          "fields": {
+            "policy_id": "P000017",
+            "customer_id": "C00005",
+            "product_code": "HB-PN-0016",
+            "product_name": "한빛생명 연금기본형4",
+            "insurer": "한빛생명",
+            "category": "연금",
+            "status": "정상유지",
+            "start_date": "2023-01-22",
+            "monthly_premium": 112831,
+            "scenario_code": "공백_배상"
+          }
+        }
+      ],
+      "chart_hint": {
+        "type": "bar",
+        "x": "coverage_name",
+        "y": "count"
+      },
+      "notes": "실제 집계는 customer_profiles ⋈ policy_headers ⋈ policy_coverages 조인 결과"
+    }
+  },
+  "editor": {
+    "final_answer": "30대 맞벌이 자녀2 가구(세그먼트 52명, 총 161건의 계약)가 가장 많이 가입한 보장은 1위 치과보강특약(43건), 2위 입원일당확장(41건), 3위 운전자벌금(37건), 4위 암진단가산(30건), 5위 해외의료확장(30건)로 나타났어요. 평균 월보험료는 약 94,852원 수준입니다.",
+    "tone": "informative",
+    "chart_spec": {
+      "type": "bar",
+      "title": "30대 맞벌이 자녀2 가구 인기 보장 TOP5",
+      "x_field": "name",
+      "y_field": "value",
+      "data": [
+        {
+          "name": "치과보강특약",
+          "value": 43
+        },
+        {
+          "name": "입원일당확장",
+          "value": 41
+        },
+        {
+          "name": "운전자벌금",
+          "value": 37
+        },
+        {
+          "name": "암진단가산",
+          "value": 30
+        },
+        {
+          "name": "해외의료확장",
+          "value": 30
+        }
+      ]
+    },
+    "citations": [
+      {
+        "source": "customer_profiles.csv",
+        "row_index": 0,
+        "highlight": "해당 세그먼트 대표 고객",
+        "fields": {
+          "customer_id": "C00005",
+          "age": 32,
+          "gender": "여성",
+          "occupation": "프리랜서",
+          "family_structure": "맞벌이자녀2",
+          "income_band": "800-1200만원",
+          "residence_region": "울산",
+          "driver_status": "비운전",
+          "persona_cluster": "맞벌이자녀가구",
+          "child_count": 2,
+          "homeowner_flag": "Y",
+          "priority_need_1": "재산보장",
+          "priority_need_2": "자차손해",
+          "needs_tags": "뇌혈관|재산보장"
+        }
+      },
+      {
+        "source": "customer_profiles.csv",
+        "row_index": 1,
+        "highlight": "실제 가입된 계약",
+        "fields": {
+          "customer_id": "C00014",
+          "age": 33,
+          "gender": "남성",
+          "occupation": "주부",
+          "family_structure": "맞벌이자녀2",
+          "income_band": "800-1200만원",
+          "residence_region": "인천",
+          "driver_status": "자가운전",
+          "persona_cluster": "사회초년생",
+          "child_count": 2,
+          "homeowner_flag": "Y",
+          "priority_need_1": "암진단",
+          "priority_need_2": "자녀상해",
+          "needs_tags": "치과|재산보장"
+        }
+      },
+      {
+        "source": "customer_profiles.csv",
+        "row_index": 2,
+        "highlight": "가입된 보장 상세",
+        "fields": {
+          "customer_id": "C00061",
+          "age": 35,
+          "gender": "남성",
+          "occupation": "주부",
+          "family_structure": "맞벌이자녀2",
+          "income_band": "500-800만원",
+          "residence_region": "광주",
+          "driver_status": "자가운전",
+          "persona_cluster": "1인가구청년",
+          "child_count": 2,
+          "homeowner_flag": "N",
+          "priority_need_1": "재산보장",
+          "priority_need_2": "해외여행",
+          "needs_tags": "어린이성장|수술비|노후연금"
+        }
+      }
+    ],
+    "followup_suggestions": [
+      "그럼 자녀 1명 가구는 어떤 보장이 인기인가요?",
+      "이 세그먼트의 평균 월보험료는 얼마인가요?"
+    ]
+  },
+  "built_at": "2026-04-16T01:01:26.781Z",
+  "built_mode": "mock-aggregator"
+}

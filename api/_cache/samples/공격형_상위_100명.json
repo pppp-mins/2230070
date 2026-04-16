@@ -1,0 +1,240 @@
+{
+  "query": "공격형 투자성향 고객 중 월 투자가용금액 상위 100명의 평균 나이와 가장 많이 보유한 상품 카테고리는?",
+  "normalized_query": "공격형 투자성향 고객 중 월 투자가용금액 상위 100명의 평균 나이와 가장 많이 보유한 상품 카테고리는?",
+  "router": {
+    "intent": "investment_analysis",
+    "required_researchers": [
+      "investment"
+    ],
+    "reject": false,
+    "rewritten_query": "공격형 투자성향 고객 중 월 투자가용금액 상위 100명의 평균 나이와 가장 많이 보유한 상품 카테고리는?"
+  },
+  "researchers": {
+    "investment": {
+      "status": "ok",
+      "answer": "공격형 투자성향 고객 중 월 투자가용금액 상위 100명의 평균 나이는 47.7세이며, 평균 월 투자가용금액은 약 2,190,000원이에요. 이 세그먼트가 가장 많이 보유한 보험 상품 카테고리는 1위 종신(64건), 2위 화재(54건), 3위 연금(51건), 4위 실손(50건), 5위 여행자(49건) 순이고, 투자상품은 INV-ET-0018, INV-연금-0055, INV-변액-0096 등을 선호합니다.",
+      "metrics": {
+        "segment_customer_count": 100,
+        "avg_monthly_invest_capacity_won": 2190000,
+        "avg_age": 47.7,
+        "top_insurance_categories": [
+          {
+            "category": "종신",
+            "count": 64
+          },
+          {
+            "category": "화재",
+            "count": 54
+          },
+          {
+            "category": "연금",
+            "count": 51
+          },
+          {
+            "category": "실손",
+            "count": 50
+          },
+          {
+            "category": "여행자",
+            "count": 49
+          }
+        ],
+        "top_investment_products": [
+          {
+            "product_id": "INV-ET-0018",
+            "count": 5,
+            "total_units": 7533
+          },
+          {
+            "product_id": "INV-연금-0055",
+            "count": 5,
+            "total_units": 6521
+          },
+          {
+            "product_id": "INV-변액-0096",
+            "count": 4,
+            "total_units": 8118
+          },
+          {
+            "product_id": "INV-변액-0010",
+            "count": 4,
+            "total_units": 9235
+          },
+          {
+            "product_id": "INV-변액-0007",
+            "count": 4,
+            "total_units": 4922
+          }
+        ]
+      },
+      "evidence_rows": [
+        {
+          "source": "risk_profiles.csv",
+          "row_index": 0,
+          "fields": {
+            "customer_id": "C00001",
+            "risk_score": 5,
+            "risk_label": "공격형",
+            "investment_horizon": "1년이하",
+            "monthly_invest_capacity_won": 800000,
+            "primary_goal": "자녀교육",
+            "survey_date": "2025-04-30"
+          }
+        },
+        {
+          "source": "risk_profiles.csv",
+          "row_index": 1,
+          "fields": {
+            "customer_id": "C00002",
+            "risk_score": 5,
+            "risk_label": "공격형",
+            "investment_horizon": "1년이하",
+            "monthly_invest_capacity_won": 800000,
+            "primary_goal": "주택마련",
+            "survey_date": "2025-05-15"
+          }
+        },
+        {
+          "source": "risk_profiles.csv",
+          "row_index": 2,
+          "fields": {
+            "customer_id": "C00005",
+            "risk_score": 5,
+            "risk_label": "공격형",
+            "investment_horizon": "3-5년",
+            "monthly_invest_capacity_won": 100000,
+            "primary_goal": "단기운용",
+            "survey_date": "2025-06-22"
+          }
+        },
+        {
+          "source": "risk_profiles.csv",
+          "row_index": 3,
+          "fields": {
+            "customer_id": "C00011",
+            "risk_score": 5,
+            "risk_label": "공격형",
+            "investment_horizon": "1년이하",
+            "monthly_invest_capacity_won": 300000,
+            "primary_goal": "노후대비",
+            "survey_date": "2025-04-16"
+          }
+        },
+        {
+          "source": "risk_profiles.csv",
+          "row_index": 4,
+          "fields": {
+            "customer_id": "C00017",
+            "risk_score": 5,
+            "risk_label": "공격형",
+            "investment_horizon": "5-10년",
+            "monthly_invest_capacity_won": 300000,
+            "primary_goal": "자산증식",
+            "survey_date": "2025-03-31"
+          }
+        }
+      ],
+      "chart_hint": {
+        "type": "bar",
+        "x": "category",
+        "y": "count"
+      }
+    }
+  },
+  "editor": {
+    "final_answer": "공격형 투자성향 고객 중 월 투자가용금액 상위 100명의 평균 나이는 47.7세이며, 평균 월 투자가용금액은 약 2,190,000원이에요. 이 세그먼트가 가장 많이 보유한 보험 상품 카테고리는 1위 종신(64건), 2위 화재(54건), 3위 연금(51건), 4위 실손(50건), 5위 여행자(49건) 순이고, 투자상품은 INV-ET-0018, INV-연금-0055, INV-변액-0096 등을 선호합니다.",
+    "tone": "informative",
+    "chart_spec": {
+      "type": "bar",
+      "title": "공격형 상위 고객이 보유한 보험 카테고리 TOP5",
+      "x_field": "name",
+      "y_field": "value",
+      "data": [
+        {
+          "name": "종신",
+          "value": 64
+        },
+        {
+          "name": "화재",
+          "value": 54
+        },
+        {
+          "name": "연금",
+          "value": 51
+        },
+        {
+          "name": "실손",
+          "value": 50
+        },
+        {
+          "name": "여행자",
+          "value": 49
+        }
+      ]
+    },
+    "citations": [
+      {
+        "source": "risk_profiles.csv",
+        "row_index": 0,
+        "highlight": "공격형 성향 프로필",
+        "fields": {
+          "customer_id": "C00001",
+          "risk_score": 5,
+          "risk_label": "공격형",
+          "investment_horizon": "1년이하",
+          "monthly_invest_capacity_won": 800000,
+          "primary_goal": "자녀교육",
+          "survey_date": "2025-04-30"
+        }
+      },
+      {
+        "source": "risk_profiles.csv",
+        "row_index": 1,
+        "highlight": "공격형 성향 프로필",
+        "fields": {
+          "customer_id": "C00002",
+          "risk_score": 5,
+          "risk_label": "공격형",
+          "investment_horizon": "1년이하",
+          "monthly_invest_capacity_won": 800000,
+          "primary_goal": "주택마련",
+          "survey_date": "2025-05-15"
+        }
+      },
+      {
+        "source": "risk_profiles.csv",
+        "row_index": 2,
+        "highlight": "공격형 성향 프로필",
+        "fields": {
+          "customer_id": "C00005",
+          "risk_score": 5,
+          "risk_label": "공격형",
+          "investment_horizon": "3-5년",
+          "monthly_invest_capacity_won": 100000,
+          "primary_goal": "단기운용",
+          "survey_date": "2025-06-22"
+        }
+      },
+      {
+        "source": "risk_profiles.csv",
+        "row_index": 3,
+        "highlight": "공격형 성향 프로필",
+        "fields": {
+          "customer_id": "C00011",
+          "risk_score": 5,
+          "risk_label": "공격형",
+          "investment_horizon": "1년이하",
+          "monthly_invest_capacity_won": 300000,
+          "primary_goal": "노후대비",
+          "survey_date": "2025-04-16"
+        }
+      }
+    ],
+    "followup_suggestions": [
+      "안정형 고객은 어떤 보험에 가장 많이 가입하나요?",
+      "공격형 고객의 보험 월보험료 평균은 얼마인가요?"
+    ]
+  },
+  "built_at": "2026-04-16T01:01:26.792Z",
+  "built_mode": "mock-aggregator"
+}

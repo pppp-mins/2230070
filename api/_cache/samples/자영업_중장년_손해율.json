@@ -1,0 +1,183 @@
+{
+  "query": "자영업 중장년 세그먼트에 인기 있는 상품 카테고리와 해당 카테고리의 최근 손해율 추이는?",
+  "normalized_query": "자영업 중장년 세그먼트에 인기 있는 상품 카테고리와 해당 카테고리의 최근 손해율 추이는?",
+  "router": {
+    "intent": "cross_analysis",
+    "required_researchers": [
+      "policy",
+      "loss_ratio"
+    ],
+    "reject": false,
+    "rewritten_query": "자영업 중장년 세그먼트에 인기 있는 상품 카테고리와 해당 카테고리의 최근 손해율 추이는?"
+  },
+  "researchers": {
+    "policy": {
+      "status": "ok",
+      "answer": "자영업 중장년 세그먼트(39명) 가 가장 많이 가입한 카테고리는 1위 종신(25건), 2위 연금(24건), 3위 화재(24건), 4위 실손(22건), 5위 여행자(20건) 순서입니다.",
+      "metrics": {
+        "segment_size": 39,
+        "top_categories": [
+          {
+            "category": "종신",
+            "count": 25
+          },
+          {
+            "category": "연금",
+            "count": 24
+          },
+          {
+            "category": "화재",
+            "count": 24
+          },
+          {
+            "category": "실손",
+            "count": 22
+          },
+          {
+            "category": "여행자",
+            "count": 20
+          }
+        ]
+      },
+      "evidence_rows": [
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 0,
+          "fields": {
+            "customer_id": "C00183",
+            "age": 63,
+            "gender": "남성",
+            "occupation": "자영업",
+            "family_structure": "1인가구",
+            "income_band": "1200만원 이상",
+            "residence_region": "울산",
+            "driver_status": "자가운전",
+            "persona_cluster": "안정형시니어",
+            "child_count": 0,
+            "homeowner_flag": "N",
+            "priority_need_1": "입원비",
+            "priority_need_2": "자녀상해",
+            "needs_tags": "뇌혈관|재산보장|심혈관|암진단"
+          }
+        },
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 1,
+          "fields": {
+            "customer_id": "C00190",
+            "age": 57,
+            "gender": "여성",
+            "occupation": "자영업",
+            "family_structure": "외벌이자녀2",
+            "income_band": "500-800만원",
+            "residence_region": "대전",
+            "driver_status": "자가운전",
+            "persona_cluster": "자영업중장년",
+            "child_count": 2,
+            "homeowner_flag": "N",
+            "priority_need_1": "사망보장",
+            "priority_need_2": "뇌혈관",
+            "needs_tags": "자녀상해|해외여행|어린이성장|치과"
+          }
+        },
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 2,
+          "fields": {
+            "customer_id": "C00264",
+            "age": 52,
+            "gender": "남성",
+            "occupation": "자영업",
+            "family_structure": "3세대가구",
+            "income_band": "500-800만원",
+            "residence_region": "강원",
+            "driver_status": "자가운전",
+            "persona_cluster": "골드에이지",
+            "child_count": 2,
+            "homeowner_flag": "Y",
+            "priority_need_1": "사망보장",
+            "priority_need_2": "심혈관",
+            "needs_tags": "암진단|자녀상해"
+          }
+        }
+      ],
+      "chart_hint": {
+        "type": "bar",
+        "x": "category",
+        "y": "count"
+      }
+    },
+    "loss_ratio": {
+      "status": "ok",
+      "answer": "해당 세그먼트의 손해율은 최근 12개월 기준 시작 대비 undefined%p 변동이 관찰되며, 월별 평균 손해율 추이는  흐름이에요.",
+      "metrics": {},
+      "evidence_rows": [],
+      "chart_hint": {
+        "type": "line",
+        "x": "연월",
+        "y": "avg_loss_ratio"
+      }
+    }
+  },
+  "editor": {
+    "final_answer": "자영업 중장년 세그먼트(39명) 가 가장 많이 가입한 카테고리는 1위 종신(25건), 2위 연금(24건), 3위 화재(24건), 4위 실손(22건), 5위 여행자(20건) 순서입니다.\n\n해당 세그먼트의 손해율은 최근 12개월 기준 시작 대비 undefined%p 변동이 관찰되며, 월별 평균 손해율 추이는  흐름이에요. 전체적으로 자영업 중장년 고객이 많이 가입한 종신 카테고리는 최근 12개월간 손해율이 변화하고 있어 상품 개선 시 이 부분을 우선 검토해보실 만해요.",
+    "tone": "informative",
+    "chart_spec": {
+      "type": "line",
+      "title": "종신 카테고리 월별 손해율 추이 (최근 12개월)",
+      "x_field": "name",
+      "y_field": "value",
+      "data": []
+    },
+    "citations": [
+      {
+        "source": "customer_profiles.csv",
+        "row_index": 0,
+        "highlight": "자영업 중장년 대표 고객",
+        "fields": {
+          "customer_id": "C00183",
+          "age": 63,
+          "gender": "남성",
+          "occupation": "자영업",
+          "family_structure": "1인가구",
+          "income_band": "1200만원 이상",
+          "residence_region": "울산",
+          "driver_status": "자가운전",
+          "persona_cluster": "안정형시니어",
+          "child_count": 0,
+          "homeowner_flag": "N",
+          "priority_need_1": "입원비",
+          "priority_need_2": "자녀상해",
+          "needs_tags": "뇌혈관|재산보장|심혈관|암진단"
+        }
+      },
+      {
+        "source": "customer_profiles.csv",
+        "row_index": 1,
+        "highlight": "해당 세그먼트 실가입 계약",
+        "fields": {
+          "customer_id": "C00190",
+          "age": 57,
+          "gender": "여성",
+          "occupation": "자영업",
+          "family_structure": "외벌이자녀2",
+          "income_band": "500-800만원",
+          "residence_region": "대전",
+          "driver_status": "자가운전",
+          "persona_cluster": "자영업중장년",
+          "child_count": 2,
+          "homeowner_flag": "N",
+          "priority_need_1": "사망보장",
+          "priority_need_2": "뇌혈관",
+          "needs_tags": "자녀상해|해외여행|어린이성장|치과"
+        }
+      }
+    ],
+    "followup_suggestions": [
+      "자영업 중장년 중 손해율이 특히 높은 보험사는 어디인가요?",
+      "같은 세그먼트에서 월보험료가 가장 비싼 상품은?"
+    ]
+  },
+  "built_at": "2026-04-16T01:01:26.787Z",
+  "built_mode": "mock-aggregator"
+}

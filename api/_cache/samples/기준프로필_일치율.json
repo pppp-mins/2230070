@@ -1,0 +1,207 @@
+{
+  "query": "기준프로필이 \"36세 여성 IT개발자\"인 상품과 실제 30대 여성 사무직 고객의 가입 상품이 얼마나 일치하나요?",
+  "normalized_query": "기준프로필이 \"36세 여성 IT개발자\"인 상품과 실제 30대 여성 사무직 고객의 가입 상품이 얼마나 일치하나요?",
+  "router": {
+    "intent": "cross_analysis",
+    "required_researchers": [
+      "product",
+      "policy"
+    ],
+    "reject": false,
+    "rewritten_query": "기준프로필이 \"36세 여성 IT개발자\"인 상품과 실제 30대 여성 사무직 고객의 가입 상품이 얼마나 일치하나요?"
+  },
+  "researchers": {
+    "product": {
+      "status": "ok",
+      "answer": "products_catalog.csv 필터링 결과, 30대 여성 타겟 상품은 총 0건이며, 카테고리별로는  분포를 보입니다.",
+      "metrics": {
+        "total_products": 0,
+        "category_breakdown": []
+      },
+      "evidence_rows": [],
+      "chart_hint": {
+        "type": "bar",
+        "x": "상품카테고리",
+        "y": "count"
+      }
+    },
+    "policy": {
+      "status": "ok",
+      "answer": "실제 30대 여성 사무직 고객 10명의 가입 카테고리는 1위 여행자(7건), 2위 연금(6건), 3위 어린이(6건), 4위 자동차(5건), 5위 실손(5건) 로, 카탈로그의 타겟 분포와 비교 가능합니다.",
+      "metrics": {
+        "segment_size": 10,
+        "top_categories": [
+          {
+            "category": "여행자",
+            "count": 7
+          },
+          {
+            "category": "연금",
+            "count": 6
+          },
+          {
+            "category": "어린이",
+            "count": 6
+          },
+          {
+            "category": "자동차",
+            "count": 5
+          },
+          {
+            "category": "실손",
+            "count": 5
+          }
+        ]
+      },
+      "evidence_rows": [
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 0,
+          "fields": {
+            "customer_id": "C00019",
+            "age": 35,
+            "gender": "여성",
+            "occupation": "IT개발자",
+            "family_structure": "외벌이자녀2",
+            "income_band": "300만원 이하",
+            "residence_region": "인천",
+            "driver_status": "자가운전",
+            "persona_cluster": "맞벌이자녀가구",
+            "child_count": 2,
+            "homeowner_flag": "N",
+            "priority_need_1": "암진단",
+            "priority_need_2": "수술비",
+            "needs_tags": "어린이성장|입원비"
+          }
+        },
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 1,
+          "fields": {
+            "customer_id": "C00069",
+            "age": 39,
+            "gender": "여성",
+            "occupation": "IT개발자",
+            "family_structure": "외벌이자녀2",
+            "income_band": "1200만원 이상",
+            "residence_region": "경기 북부",
+            "driver_status": "자가운전",
+            "persona_cluster": "맞벌이자녀가구",
+            "child_count": 2,
+            "homeowner_flag": "Y",
+            "priority_need_1": "심혈관",
+            "priority_need_2": "치과",
+            "needs_tags": "어린이성장|자차손해|암진단"
+          }
+        },
+        {
+          "source": "customer_profiles.csv",
+          "row_index": 2,
+          "fields": {
+            "customer_id": "C00400",
+            "age": 30,
+            "gender": "여성",
+            "occupation": "IT개발자",
+            "family_structure": "맞벌이자녀2",
+            "income_band": "800-1200만원",
+            "residence_region": "대구",
+            "driver_status": "자가운전",
+            "persona_cluster": "1인가구청년",
+            "child_count": 2,
+            "homeowner_flag": "Y",
+            "priority_need_1": "재산보장",
+            "priority_need_2": "심혈관",
+            "needs_tags": "수술비|노후연금"
+          }
+        }
+      ],
+      "chart_hint": {
+        "type": "bar",
+        "x": "category",
+        "y": "count"
+      }
+    }
+  },
+  "editor": {
+    "final_answer": "기준프로필이 \"36세 여성 IT개발자\"에 맞춰 설계된 상품은 0건 존재하며 상위 카테고리는  등이에요.\n\n반면 실제 30대 여성 사무직 고객 10명이 가장 많이 가입한 카테고리는 여행자 · 연금 · 어린이 순으로, 카탈로그 타겟 설계와 실제 가입 패턴 사이에 차이가 관찰됩니다. 상품기획 관점에서 보면 타겟 재정의 또는 마케팅 메시지 조정이 도움이 될 수 있어요.",
+    "tone": "informative",
+    "chart_spec": {
+      "type": "bar",
+      "title": "카탈로그 vs 실제 가입 카테고리 비교",
+      "x_field": "name",
+      "y_field": "value",
+      "data": [
+        {
+          "name": "여행자",
+          "value": 7
+        },
+        {
+          "name": "연금",
+          "value": 6
+        },
+        {
+          "name": "어린이",
+          "value": 6
+        },
+        {
+          "name": "자동차",
+          "value": 5
+        },
+        {
+          "name": "실손",
+          "value": 5
+        }
+      ]
+    },
+    "citations": [
+      {
+        "source": "customer_profiles.csv",
+        "row_index": 0,
+        "highlight": "실제 30대 여성 사무직 고객",
+        "fields": {
+          "customer_id": "C00019",
+          "age": 35,
+          "gender": "여성",
+          "occupation": "IT개발자",
+          "family_structure": "외벌이자녀2",
+          "income_band": "300만원 이하",
+          "residence_region": "인천",
+          "driver_status": "자가운전",
+          "persona_cluster": "맞벌이자녀가구",
+          "child_count": 2,
+          "homeowner_flag": "N",
+          "priority_need_1": "암진단",
+          "priority_need_2": "수술비",
+          "needs_tags": "어린이성장|입원비"
+        }
+      },
+      {
+        "source": "customer_profiles.csv",
+        "row_index": 1,
+        "highlight": "실제 30대 여성 사무직 고객",
+        "fields": {
+          "customer_id": "C00069",
+          "age": 39,
+          "gender": "여성",
+          "occupation": "IT개발자",
+          "family_structure": "외벌이자녀2",
+          "income_band": "1200만원 이상",
+          "residence_region": "경기 북부",
+          "driver_status": "자가운전",
+          "persona_cluster": "맞벌이자녀가구",
+          "child_count": 2,
+          "homeowner_flag": "Y",
+          "priority_need_1": "심혈관",
+          "priority_need_2": "치과",
+          "needs_tags": "어린이성장|자차손해|암진단"
+        }
+      }
+    ],
+    "followup_suggestions": [
+      "30대 여성 IT개발자 세그먼트만 따로 보면 어떤 상품을 가장 많이 드나요?",
+      "카탈로그 vs 실가입 일치도가 가장 낮은 세그먼트는?"
+    ]
+  },
+  "built_at": "2026-04-16T01:01:26.796Z",
+  "built_mode": "mock-aggregator"
+}

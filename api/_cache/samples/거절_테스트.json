@@ -1,0 +1,27 @@
+{
+  "query": "내일 KOSPI가 오를까요?",
+  "normalized_query": "내일 KOSPI가 오를까요?",
+  "router": {
+    "intent": "refuse",
+    "required_researchers": [],
+    "reject": true,
+    "reject_reason": "제공된 보험·투자 데이터셋(고객·상품·보장·손해율·투자상품 등)만으로는 미래 주가 변동을 예측할 수 없습니다.",
+    "rewritten_query": "내일 KOSPI가 오를까요?"
+  },
+  "researchers": {},
+  "editor": {
+    "final_answer": "죄송해요, 내일 KOSPI가 오를지는 제가 답드리기 어려워요. 저는 한화생명 해커톤에서 제공된 고객·상품·보장·손해율·투자상품 데이터만 참고할 수 있고, 실시간 시장 예측은 제 범위 밖이거든요.\n\n대신 이런 질문은 도움을 드릴 수 있어요:\n• 공격형 투자성향 고객의 보유 상품 분포\n• 최근 12개월 KOSPI 대비 펀드 수익률 비교 (market_benchmarks 기반)",
+    "tone": "apologetic",
+    "chart_spec": {
+      "type": "none",
+      "data": []
+    },
+    "citations": [],
+    "followup_suggestions": [
+      "공격형 투자성향 고객이 가장 많이 보유한 상품은?",
+      "최근 KOSPI 대비 펀드 수익률은 어땠나요?"
+    ]
+  },
+  "built_at": "2026-04-16T01:01:26.797Z",
+  "built_mode": "mock-aggregator"
+}
