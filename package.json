@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "cp -r data public/data",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
