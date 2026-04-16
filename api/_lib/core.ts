@@ -1,7 +1,7 @@
-import { generateJson } from './gemini'
-import { ROUTER_SCHEMA, RESEARCHER_SCHEMA, EDITOR_SCHEMA } from './schemas'
-import { buildRouterPrompt, buildResearcherPrompt, buildEditorPrompt } from './prompts'
-import { getCachedRouter, getCachedResearch, getCachedEditor, findCached } from './cache'
+import { generateJson } from './gemini.js'
+import { ROUTER_SCHEMA, RESEARCHER_SCHEMA, EDITOR_SCHEMA } from './schemas.js'
+import { buildRouterPrompt, buildResearcherPrompt, buildEditorPrompt } from './prompts.js'
+import { getCachedRouter, getCachedResearch, getCachedEditor, findCached } from './cache.js'
 
 const ROUTER_MODEL = process.env.GEMINI_ROUTER_MODEL || 'gemini-2.5-flash-lite'
 const RESEARCHER_MODEL = process.env.GEMINI_RESEARCHER_MODEL || 'gemini-2.5-flash-lite'
